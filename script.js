@@ -8,6 +8,8 @@ const closeModalBtn = document.getElementById("close-modal-btn")
 const cartCounter = document.getElementById("cart-count")
 const nameInput = document.getElementById("name")
 const nameWarn = document.getElementById("name-warn")
+const customerPhoneInput = document.getElementById("customer-phone")
+const customerPhoneWarn = document.getElementById("customer-phone-warn")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
 
@@ -149,6 +151,15 @@ nameInput.addEventListener("input", function(event){
   }
 })
 
+customerPhoneInput.addEventListener("input", function(event){
+  let inputValue = event.target.value;
+
+  if(inputValue !== ""){
+    customerPhoneInput.classList.remove("border-red-500")
+    customerPhoneWarn.classList.add("hidden")
+  }
+})
+
 addressInput.addEventListener("input", function(event){
   let inputValue = event.target.value;
 
@@ -190,6 +201,12 @@ checkoutBtn.addEventListener("click", function(){
     return;
   }
 
+  if(customerPhoneInput.value === ""){
+    customerPhoneWarn.classList.remove("hidden")
+    customerPhoneInput.classList.add("border-red-500")
+    return;
+  }
+
   if(addressInput.value === ""){
     addressWarn.classList.remove("hidden")
     addressInput.classList.add("border-red-500")
@@ -204,7 +221,7 @@ checkoutBtn.addEventListener("click", function(){
   }).join("")
 
   const message = encodeURIComponent(cartItems)
-  const phone = "551197787389"
+  const phone = "5511910073911"
 
   const formatTitleCase = (text) => {
     return text.split(' ').map(word => {
@@ -219,7 +236,7 @@ checkoutBtn.addEventListener("click", function(){
   const formattedName = formatTitleCase(nameInput.value);
   const formattedAddress = formatTitleCase(address);
 
-  window.open(`https://wa.me/${phone}?text=${message} *Nome: ${formattedName} | Endereço: ${formattedAddress}*`, "_blank")
+  window.open(`https://wa.me/${phone}?text=${message} *Nome: ${formattedName} | Telefone: ${customerPhoneInput.value} | Endereço: ${formattedAddress}*`, "_blank")
 
   cart = [];
   updateCartModal();

@@ -44,7 +44,7 @@
         <p>Ligue e faça seu pedido,</p>
         <div class="flex items-center justify-center gap-2 mt-1">
           <img src="./assets/ligue.png" alt="Ligue já" style="width: 32px; height: 32px;" />
-          <span class="text-lg">(11) 97787-3899</span>
+          <span class="text-lg">(11) 91007-3911</span>
         </div>
       </div>
 
@@ -490,13 +490,25 @@
 
       <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
 
-      <p class="font-bold mt-4">Nome:</p>
-      <input type="text" placeholder="Digite seu nome..." id="name" class="w-full border-2 p-1 rounded my-1" />
-      <p class="text-red-500 hidden" id="name-warn">Digite seu nome!</p>
-
-      <p class="font-bold mt-2">Endereço de entrega:</p>
-      <input type="text" placeholder="Digite seu endereço..." id="address" class="w-full border-2 p-1 rounded my-1" />
-      <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; width: 100%; margin-top: 1rem;">
+        <div>
+          <p class="font-bold">Nome:</p>
+          <input type="text" placeholder="Digite seu nome..." id="name" class="w-full border-2 p-1 rounded my-1" />
+          <p class="text-red-500 hidden" id="name-warn">Digite seu nome!</p>
+        </div>
+        <div>
+          <p class="font-bold">Telefone:</p>
+          <input type="text" placeholder="Seu telefone..." id="customer-phone"
+            class="w-full border-2 p-1 rounded my-1" />
+          <p class="text-red-500 hidden" id="customer-phone-warn">Digite seu telefone!</p>
+        </div>
+        <div style="grid-column: span 2;">
+          <p class="font-bold">Endereço de entrega:</p>
+          <input type="text" placeholder="Digite seu endereço..." id="address"
+            class="w-full border-2 p-1 rounded my-1" />
+          <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+        </div>
+      </div>
 
       <div class="flex items-center justify-between mt-5 w-full">
         <button id="close-modal-btn">Fechar</button>
