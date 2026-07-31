@@ -2205,11 +2205,6 @@ video {
   line-height: 1.25rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -2688,17 +2683,17 @@ body{
 @keyframes float-away {
   0% {
     opacity: 1;
-    transform: translate(-50%, 0) scale(0.5);
+    transform: translate(-100%, 0) scale(0.5);
   }
 
   30% {
     opacity: 1;
-    transform: translate(-50%, -25px) scale(1.1);
+    transform: translate(-100%, -25px) scale(1.1);
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, -60px) scale(1);
+    transform: translate(-100%, -60px) scale(1);
   }
 }
 

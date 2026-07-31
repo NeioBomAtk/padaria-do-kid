@@ -54,11 +54,14 @@ menu.addEventListener("click", function(event){
     // Cria o balãozinho flutuante
     const bubble = document.createElement("div")
     bubble.classList.add("floating-bubble")
-    bubble.innerHTML = '<i class="fa fa-check text-xs"></i> +1 item adicionado'
+    // Texto sem o check para economizar espaço em telas menores
+    bubble.innerHTML = '+1 item adicionado'
     
-    // Posiciona o balãozinho exatamente acima do botão
+    // Posiciona o balãozinho alinhado com a borda direita do botão
     const rect = parentButton.getBoundingClientRect()
-    bubble.style.left = (rect.left + rect.width / 2 + window.scrollX) + "px"
+    // Como agora usamos translate(-100%) no CSS, se alinharmos à borda direita (rect.right), 
+    // o balãozinho sempre vai crescer para a esquerda e nunca vai vazar da tela!
+    bubble.style.left = (rect.right + window.scrollX) + "px"
     bubble.style.top = (rect.top + window.scrollY) + "px"
 
     document.body.appendChild(bubble)
