@@ -42,6 +42,31 @@ menu.addEventListener("click", function(event){
     const name = parentButton.getAttribute("data-name")
     const price = parseFloat(parentButton.getAttribute("data-price"))
     addToCart(name, price)
+
+    // Adiciona a animação de pulo no botão (carrinho) e no footer
+    parentButton.classList.add("animate-btn-click")
+    cartBtn.classList.add("animate-btn-click")
+    setTimeout(() => {
+      parentButton.classList.remove("animate-btn-click")
+      cartBtn.classList.remove("animate-btn-click")
+    }, 400)
+
+    // Cria o balãozinho flutuante
+    const bubble = document.createElement("div")
+    bubble.classList.add("floating-bubble")
+    bubble.innerHTML = '<i class="fa fa-check text-xs"></i> +1 item adicionado'
+    
+    // Posiciona o balãozinho exatamente acima do botão
+    const rect = parentButton.getBoundingClientRect()
+    bubble.style.left = (rect.left + rect.width / 2 + window.scrollX) + "px"
+    bubble.style.top = (rect.top + window.scrollY) + "px"
+
+    document.body.appendChild(bubble)
+
+    // Remove o balãozinho após 1 segundo (duração da animação)
+    setTimeout(() => {
+      bubble.remove()
+    }, 1000)
   }
 
 })

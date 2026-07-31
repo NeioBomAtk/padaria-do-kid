@@ -764,6 +764,10 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -2201,6 +2205,11 @@ video {
   line-height: 1.25rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2284,6 +2293,11 @@ video {
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .text-red-500 {
@@ -2641,6 +2655,66 @@ video {
 
 body{
   background-color: #F6F7F8;
+}
+
+/* Animações do botão de adicionar e do balão fluante */
+
+@keyframes cart-bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.85);
+  }
+
+  60% {
+    transform: scale(1.15);
+  }
+
+  80% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-btn-click {
+  animation: cart-bounce 0.4s ease-out;
+}
+
+@keyframes float-away {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.5);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -25px) scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60px) scale(1);
+  }
+}
+
+.floating-bubble {
+  position: absolute;
+  background-color: #22c55e;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: float-away 1s ease-out forwards;
+  z-index: 100;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 640px) {
